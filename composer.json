@@ -1,0 +1,23 @@
+{
+    "name": "timotheecorrado/clip",
+    "description": "Réseau social de vidéoconférence anonyme entre utilisateurs.",
+    "type": "project",
+    "license": "timotheecorrado",
+    "authors": [
+        {
+            "name": "aliastim",
+            "email": "timothee.corrado@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "symfony/var-dumper": "^4.3",
+        "doctrine/orm": "^2.6",
+        "twig/twig": "^2.11"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": ""
+        }
+    }
+}
