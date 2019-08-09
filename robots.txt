@@ -1,0 +1,4 @@
+User-Agent: *
+Disallow: /img/icones/
+
+Sitemap: https://monsite.com/sitemap.xml
