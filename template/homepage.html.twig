@@ -2,6 +2,71 @@
 
 {% block main %}
 
-    <h1>Titre de ma page</h1>
+    <div class="section main">
+        <div class="container text-center">
+            <h1 class="line-after-title quicksand_bold" style="margin-top: 20px; margin-bottom: 20px;">Tableau de bord</h1>
+
+            <div class="leo-hebdo-section shadow">
+                <div class="leo-hebdo-header">
+                    <h3>LéoHebdo</h3>
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec elementum justo sed dolor congue cursus. Pellentesque accumsan leo urna, pellentesque imperdiet sapien luctus at. Maecenas id elit vitae mauris tristique auctor. Ut orci leo, commodo eu ullamcorper sed, maximus eget est. Praesent in erat dignissim risus scelerisque consequat vel et tellus. Sed imperdiet vulputate justo ac porta. Suspendisse tincidunt urna urna, aliquet congue elit convallis ac. Integer enim odio, vehicula volutpat erat faucibus, fringilla cursus ipsum. Pellentesque ut ligula varius, blandit odio vel, fermentum nibh. Donec mollis arcu ut dui rhoncus pharetra.
+                </p>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 col-md-6 shadow">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-12">
+                            <img class="monAvatar" style="max-width: 180px !important; width: 180px !important;" src="{{ avatar }}">
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <h2>Timothée CORRADO</h2>
+                            <label>Promo 2021 - Développement web</label>
+                            <a href="../profil.php"> <button>Voir mon profil</button></a>
+                            <a href="../profil.php" target="_blank"> <button>Linkedin</button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 shadow">
+                    <p>LéoHebdo ?</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 col-md-6 shadow">
+                   <p>Mes cours mis en ligne</p>
+                </div>
+                <div class="col-sm-12 col-md-6 shadow">
+                    <p>Mes cours favoris</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 shadow">
+                    <p>Conversations suivies</p>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <div class="footer-accueil text-center">
+            <div class="container">
+                <form method="post" action="#">
+                    <h3 class="quicksand_bold">Contacter le support</h3>
+                    <select name="probleme-support" class="input-connect custom-select">
+                        <option>Bug</option>
+                        <option>Ajout catégorie de cours</option>
+                        <option>Devenir modérateur</option>
+                        <option>Autre demande</option>
+                    </select>
+                    <textarea name="message-support" class="input-connect"></textarea>
+                </form>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}

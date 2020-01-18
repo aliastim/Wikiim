@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+    <div class="section main">
+        <div class="container text-center">
+            <h1 class="quicksand_bold title-h1" style="margin-top: 20px;">Mon profil</h1>
+
+            <img class="monAvatar" src="{{ avatar }}">
+
+            <form action="../edit_user.php" method="post">
+
+                <div id="avatar">
+                    <input type="radio" name="avatar" id="avatar1" value="../img/avatar.png" {% if avatar == "../img/avatar.png" %}checked{% endif %}/>
+                    <label for="avatar1" class="{% if avatar == "../img/avatar.png" %}selected-avatar{% endif %}"><img src="../img/avatar.png" alt="avatar1" /></label>
+
+                    <input type="radio" name="avatar" id="avatar2" value="../img/avatar2.png" {% if avatar == "../img/avatar2.png" %}checked{% endif %}/>
+                    <label for="avatar2" class="{% if avatar == "../img/avatar2.png" %}selected-avatar{% endif %}"><img src="../img/avatar2.png" alt="avatar2" /></label>
+
+                    <input type="radio" name="avatar" id="avatar3" value="../img/avatar3.png" {% if avatar == "../img/avatar3.png" %}checked{% endif %}/>
+                    <label for="avatar3" class="{% if avatar == "../img/avatar3.png" %}selected-avatar{% endif %}"><img src="../img/avatar3.png" alt="avatar3" /></label>
+
+                    <input type="radio" name="avatar" id="avatar4" value="../img/avatar4.png" {% if avatar == "../img/avatar4.png" %}checked{% endif %}/>
+                    <label for="avatar4" class="{% if avatar == "../img/avatar4.png" %}selected-avatar{% endif %}"><img src="../img/avatar4.png" alt="avatar4" /></label>
+
+                    <input type="radio" name="avatar" id="avatar5" value="../img/avatar5.png" {% if avatar == "../img/avatar5.png" %}checked{% endif %}/>
+                    <label for="avatar5" class="{% if avatar == "../img/avatar5.png" %}selected-avatar{% endif %}"><img src="../img/avatar5.png" alt="avatar5" /></label>
+
+                    <input type="radio" name="avatar" id="avatar6" value="../img/avatar6.png" {% if avatar == "../img/avatar6.png" %}checked{% endif %}/>
+                    <label for="avatar6" class="{% if avatar == "../img/avatar6.png" %}selected-avatar{% endif %}"><img src="../img/avatar6.png" alt="avatar6" /></label>
+
+                    <input type="radio" name="avatar" id="avatar7" value="../img/avatar7.png" {% if avatar == "../img/avatar7.png" %}checked{% endif %}/>
+                    <label for="avatar7" class="{% if avatar == "../img/avatar7.png" %}selected-avatar{% endif %}"><img src="../img/avatar7.png" alt="avatar7" /></label>
+
+                    <input type="radio" name="avatar" id="avatar8" value="../img/avatar8.png" {% if avatar == "../img/avatar8.png" %}checked{% endif %}/>
+                    <label for="avatar8" class="{% if avatar == "../img/avatar8.png" %}selected-avatar{% endif %}"><img src="../img/avatar8.png" alt="avatar8" /></label>
+
+                    <input type="radio" name="avatar" id="avatar9" value="../img/avatar9.png" {% if avatar == "../img/avatar9.png" %}checked{% endif %}/>
+                    <label for="avatar9" class="{% if avatar == "../img/avatar9.png" %}selected-avatar{% endif %}"><img src="../img/avatar9.png" alt="avatar9" /></label>
+
+                    <input type="radio" name="avatar" id="avatar10" value="../img/avatar10.png" {% if avatar == "../img/avatar10.png" %}checked{% endif %}>
+                    <label for="avatar10" class="{% if avatar == "../img/avatar10.png" %}selected-avatar{% endif %}"><img src="../img/avatar10.png" alt="avatar10" /></label>
+
+                    <input type="radio" name="avatar" id="avatar11" value="../img/avatar11.png" {% if avatar == "../img/avatar11.png" %}checked{% endif %}/>
+                    <label for="avatar11" class="{% if avatar == "../img/avatar11.png" %}selected-avatar{% endif %}"><img src="../img/avatar11.png" alt="avatar11" /></label>
+
+                    <input type="radio" name="avatar" id="avatar12" value="../img/avatar12.png" {% if avatar == "../img/avatar12.png" %}checked{% endif %}/>
+                    <label for="avatar12" class="{% if avatar == "../img/avatar12.png" %}selected-avatar{% endif %}"><img src="../img/avatar12.png" alt="avatar12" /></label>
+
+                    <input type="radio" name="avatar" id="avatar13" value="../img/avatar13.png" {% if avatar == "../img/avatar13.png" %}checked{% endif %}/>
+                    <label for="avatar13" class="{% if avatar == "../img/avatar13.png" %}selected-avatar{% endif %}"><img src="../img/avatar13.png" alt="avatar13" /></label>
+                </div>
+                <!-- https://stackoverflow.com/questions/3896156/how-do-i-style-radio-buttons-with-images-laughing-smiley-for-good-sad-smiley/3896259 -->
+                <!-- Voir style.js -->
+
+                <input type="submit" value="sauvegarder">
+            </form>
+        </div>
+    </div>
+
+
+{% endblock %}
+

@@ -1,0 +1,127 @@
+{% extends 'base.html.twig' %}
+
+{% block header %} {% endblock %}
+{% block main %}
+
+    {% if inscription|default(false) %}
+        <div class="alert alert-success alert-dismissible fade show fade-alert" role="alert" style="position: absolute; width: calc(100% - 100px); margin-left: 50px; margin-right: 50px;">
+            <strong>Votre inscription a bien été prise en compte est en attente de validation</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% elseif validate|default(false) %}
+        <div class="alert alert-warning alert-dismissible fade show fade-alert" role="alert" style="position: absolute; width: calc(100% - 100px); margin-left: 50px; margin-right: 50px;">
+            <strong>Votre inscription n'a pas encore été validée par un administrateur</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% elseif erreur|default(false) %}
+        <div class="alert alert-danger alert-dismissible fade show fade-alert" role="alert" style="position: absolute; width: calc(100% - 100px); margin-left: 50px; margin-right: 50px;">
+            <strong>Erreur d'identifiant ou de mot de passe</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% elseif undefined|default(false) %}
+        <div class="alert alert-danger alert-dismissible fade show fade-alert" role="alert" style="position: absolute; width: calc(100% - 100px); margin-left: 50px; margin-right: 50px;">
+            <strong>Cet utilisateur n'existe pas</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endif %}
+
+    <div class="section-connect">
+        <div class="container">
+            <!--<h1>Titre de ma page</h1>-->
+                <div class="d-flex">
+                    <div class="container-connect shadow p-3 mb-5 bg-white rounded">
+                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                            <li class="nav-item-connect">
+                                <a class="nav-link active" id="connexion-tab" data-toggle="pill" href="#connexion" role="tab" aria-controls="connexion" aria-selected="true">S'authentifier</a>
+                            </li>
+                            <li class="nav-item-connect">
+                                <a class="nav-link" id="inscription-tab" data-toggle="pill" href="#inscription" role="tab" aria-controls="inscription" aria-selected="false">S'inscrire</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="connexion" role="tabpanel" aria-labelledby="connexion-tab">
+                                <div class="w-100 text-center">
+                                    <img src="../img/logo_wikiim.png" class="logo-connect">
+                                </div>
+                                <form method="post" action="../connect_verify.php">
+                                    <label for="mail">Mail devinci :</label>
+                                    <input id="mail" type="text" name="mail" class="input-connect">
+                                    <label for="password">Mot de passe :</label>
+                                    <input id="password" type="password" name="password" class="input-connect">
+                                    <label><a href="#">Mot de passe oublié ?</a></label>
+
+                                    <input type="submit" class="submit-connect pulse" value="Connexion">
+                                </form>
+
+                                <div class="accordion" id="help">
+                                    <div class="card0">
+                                        <div class="card-header0 text-center" id="headingOne">
+                                            <h2 class="mb-0">
+                                                <button class="btn btn-link text-center btn-help-connect" type="button" data-toggle="collapse" data-target="#information" aria-expanded="true" aria-controls="collapseOne">
+
+                                                </button>
+                                            </h2>
+                                        </div>
+
+                                        <div id="information" class="collapse" aria-labelledby="headingOne" data-parent="#help">
+                                            <div class="card-body card-help-connect">
+                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="tab-pane fade" id="inscription" role="tabpanel" aria-labelledby="inscription-tab">
+                                <form method="post" action="../user_new.php">
+                                    <label for="firstname">Prénom :</label>
+                                    <input id="firstname" type="text" name="firstname" class="input-connect">
+                                    <label for="name">Nom :</label>
+                                    <input id="name" type="text" name="name" class="input-connect">
+                                    <label for="mail">Adresse mail devinci :</label>
+                                    <input id="mail" type="text" name="mail" class="input-connect">
+                                    <label for="password">Mot de passe :</label>
+                                    <input type="password" name="password" class="input-connect">
+                                    <label for="cursus">Cursus :</label>
+                                    <select id="cursus" name="cursus" class="input-connect custom-select">
+                                        <option>Année préparatoire/Restart</option>
+                                        <option>Bachelor - Animation 3D</option>
+                                        <option>Bachelor - Communication digitale</option>
+                                        <option>Bachelor - Création & design</option>
+                                        <option>Bachelor - Développement Web</option>
+                                        <option>Bachelor - Jeux vidéo</option>
+                                        <option>Mastère - CSSM</option>
+                                        <option>Mastère - DA</option>
+                                        <option>Mastère - DMDA</option>
+                                        <option>Mastère - GA</option>
+                                        <option>Mastère - GD</option>
+                                        <option>Mastère - GP</option>
+                                        <option>Mastère - GP3D</option>
+                                        <option>Mastère - IUX</option>
+                                        <option>Mastère - IWM</option>
+                                        <option>Mastère - MTD</option>
+                                        <option>Mastère - PMJV</option>
+                                        <option>Mastère - RA3D</option>
+                                        <option>Mastère - SEB</option>
+                                        <option>MBA - VGM</option>
+                                    </select>
+                                    <input type="submit" class="submit-connect pulse" style="margin-top: 60px;">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

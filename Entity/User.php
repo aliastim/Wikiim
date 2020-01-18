@@ -12,8 +12,8 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  *
- * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
- * @ORM\Table(name="user")
+ * @ORM\Entity(repositoryClass="App\Repository\UserRepo")
+ * @ORM\Table(name="User")
  */
 class User
 {
@@ -44,6 +44,27 @@ class User
      *
      * @ORM\Column(type="string")
      */
+    private $cursus;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $admin_level;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="text")
+     */
+    private $avatar;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
     private $num;
 
     /**
@@ -59,6 +80,20 @@ class User
      * @ORM\Column(type="string")
      */
     private $password;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $linkedin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $allowed;
 
     const MAX_PER_PAGE       = 10;
 
@@ -123,6 +158,63 @@ class User
     /**
      * @return string
      */
+    public function getCursus(): ?string
+    {
+        return $this->cursus;
+    }
+
+    /**
+     * @return User
+     * @param string $cursus
+     */
+    public function setCursus($cursus): User
+    {
+        $this->cursus = $cursus;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAdmin_level(): ?string
+    {
+        return $this->admin_level;
+    }
+
+    /**
+     * @return User
+     * @param string $admin_level
+     */
+    public function setAdmin_level($admin_level): User
+    {
+        $this->admin_level = $admin_level;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAvatar(): ?string
+    {
+        return $this->avatar;
+    }
+
+    /**
+     * @return User
+     * @param string $avatar
+     */
+    public function setAvatar($avatar): User
+    {
+        $this->avatar = $avatar;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
     public function getNum(): ?string
     {
         return $this->num;
@@ -174,6 +266,44 @@ class User
     public function setPassword($password): User
     {
         $this->password = password_hash($password, PASSWORD_BCRYPT);
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLinkedin(): ?string
+    {
+        return $this->linkedin;
+    }
+
+    /**
+     * @return User
+     * @param string $linkedin
+     */
+    public function setLinkedin($linkedin): User
+    {
+        $this->linkedin = $linkedin;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAllowed(): ?string
+    {
+        return $this->allowed;
+    }
+
+    /**
+     * @return User
+     * @param string $allowed
+     */
+    public function setAllowed($allowed): User
+    {
+        $this->allowed = $allowed;
 
         return $this;
     }

@@ -1,0 +1,195 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <div class="section main">
+        <div class="container text-center">
+            <h1 class="quicksand_bold title-h1 line-after-title" style="margin-top: 20px;">Administration</h1>
+
+            <span class="badge badge-pill badge-success">25 utilisateurs connectés</span>
+            <span class="badge badge-pill badge-info">346 utilisateurs</span>
+
+            <div class="row" style="margin-top: 30px !important;">
+                <div class="col-sm-6">
+                    <div class="admin-cours shadow">
+                        <h4 class="quicksand_bold">Ajouter une catégorie de cours</h4>
+                        <form method="post" action="../cours_categorie_new.php">
+                            <input id="categorie_cours" name="name" type="text" placeholder="Nom du cours" required class="input-connect" style="text-align: center;">
+                            <select id="axe" name="axe" class="input-connect custom-select">
+                                <option>Année préparatoire/Restart</option>
+                                <option>Bachelor - Animation 3D</option>
+                                <option>Bachelor - Communication digitale</option>
+                                <option>Bachelor - Création & design</option>
+                                <option>Bachelor - Développement Web</option>
+                                <option>Bachelor - Jeux vidéo</option>
+                                <option>Mastère - CSSM</option>
+                                <option>Mastère - DA</option>
+                                <option>Mastère - DMDA</option>
+                                <option>Mastère - GA</option>
+                                <option>Mastère - GD</option>
+                                <option>Mastère - GP</option>
+                                <option>Mastère - GP3D</option>
+                                <option>Mastère - IUX</option>
+                                <option>Mastère - IWM</option>
+                                <option>Mastère - MTD</option>
+                                <option>Mastère - PMJV</option>
+                                <option>Mastère - RA3D</option>
+                                <option>Mastère - SEB</option>
+                                <option>MBA - VGM</option>
+                                <option>Softskills</option>
+                            </select>
+                            <select id="annee" name="annee" class="input-connect custom-select">
+                                <option>A1</option>
+                                <option>A2</option>
+                                <option>A3</option>
+                                <option>A4</option>
+                                <option>A5</option>
+                            </select>
+                            <input type="submit" class="submit-connect">
+                        </form>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="admin-validation-cours shadow">
+                        <h4 class="quicksand_bold">Validation cours</h4>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">Cours</th>
+                                <th scope="col">Valider ?</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for cours in cours_a_valider %}
+                            <tr>
+                                <th scope="row">{{ cours.name }}</th>
+                                <td><form method="post" action="../admin_validate_cours.php">
+                                        <input type="hidden" name="id" value="{{ cours.id }}">
+                                        <button class="btn btn-success" type="submit">Valider</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="admin-cours shadow">
+                        <h4 class="quicksand_bold">Modifier un cours</h4>
+                        <form method="get" action="../admin/liste_cours.php">
+                            <input id="categorie_cours" name="name" type="text" placeholder="Nom du cours" required class="input-connect" style="text-align: center;">
+                            <input type="submit" class="submit-connect" value="Rechercher">
+                        </form>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="admin-cours shadow">
+                        <h4 class="quicksand_bold">Modifier une catégorie de cours</h4>
+                        <form method="post" action="#">
+                            <select id="axe" name="axe" class="input-connect custom-select">
+                                <option>Année préparatoire/Restart</option>
+                                <option>Bachelor - Animation 3D</option>
+                                <option>Bachelor - Communication digitale</option>
+                                <option>Bachelor - Création & design</option>
+                                <option>Bachelor - Développement Web</option>
+                                <option>Bachelor - Jeux vidéo</option>
+                                <option>Mastère - CSSM</option>
+                                <option>Mastère - DA</option>
+                                <option>Mastère - DMDA</option>
+                                <option>Mastère - GA</option>
+                                <option>Mastère - GD</option>
+                                <option>Mastère - GP</option>
+                                <option>Mastère - GP3D</option>
+                                <option>Mastère - IUX</option>
+                                <option>Mastère - IWM</option>
+                                <option>Mastère - MTD</option>
+                                <option>Mastère - PMJV</option>
+                                <option>Mastère - RA3D</option>
+                                <option>Mastère - SEB</option>
+                                <option>MBA - VGM</option>
+                                <option>Softskills</option>
+                            </select>
+                            <input type="submit" class="submit-connect" value="voir">
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <br><br>
+
+            <table class="table">
+                <thead class="thead-light">
+                <tr>
+                    <th scope="col">FONCTIONNALITES</th>
+                    <th scope="col">Asso</th>
+                    <th scope="col">Modo</th>
+                    <th scope="col">Admin</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">Message Support</th>
+                    <td>✘</td>
+                    <td>✘</td>
+                    <td>✘</td>
+                </tr>
+                <tr>
+                    <th scope="row">LéoHebdo</th>
+                    <td>✘</td>
+                    <td></td>
+                    <td>✘</td>
+                </tr>
+                <tr>
+                    <th scope="row">Ajout catégorie de cours</th>
+                    <td></td>
+                    <td></td>
+                    <td>✘</td>
+                </tr>
+                <tr>
+                    <th scope="row">Validation de cours</th>
+                    <td></td>
+                    <td>✘</td>
+                    <td>✘</td>
+                </tr>
+                <tr>
+                    <th scope="row">Elevation admin</th>
+                    <td></td>
+                    <td></td>
+                    <td>✘</td>
+                </tr>
+                <tr>
+                    <th scope="row">Modification/suppression cours</th>
+                    <td></td>
+                    <td>✘</td>
+                    <td>✘</td>
+                </tr>
+                <tr>
+                    <th scope="row">Ajout utilisateur</th>
+                    <td></td>
+                    <td></td>
+                    <td>✘</td>
+                </tr>
+                <tr>
+                    <th scope="row">Validation utilisateur</th>
+                    <td></td>
+                    <td>✘</td>
+                    <td>✘</td>
+                </tr>
+                </tbody>
+            </table>
+
+
+            <p>Listes des cours importés (modifier un cours)</p>
+            <p>Ajouter un utilisateurs</p>
+            <p>Valider un utilisateurs</p>
+            <p>LéoHebdo</p>
+
+            <i>Supprimer les cours en double !</i>
+            <i>Pastille cours obsolète ?</i>
+
+        </div>
+    </div>
+{% endblock %}

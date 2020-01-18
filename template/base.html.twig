@@ -7,13 +7,201 @@
     <title>{{ title|default('Titre par défaut de mon site web') }}</title>
     <link rel="icon" type="image/png" href="favicon.png">
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../src/style.css">
+    <link rel="stylesheet" href="../src/all.css">
+
+
+
 </head>
 <body>
 {% block body %}
 
     <header>
-        {% block header %}{% endblock %}
+        {% block header %}
+            <div class="area"></div>
+            <nav class="main-menu">
+                <div class="gradient-line"></div>
+                <ul>
+                    <li>
+                        <a href="../index.php">
+                            <i class="fa fa-home fa-x"></i>
+                            <span class="nav-text">
+                            Tableau de bord
+                        </span>
+                        </a>
+
+                    </li>
+                    <li class="has-subnav">
+                        <a data-toggle="collapse" href="#cours" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            <i class="fa fa-laptop fa-x"></i>
+                            <span class="nav-text fleche">
+                            Cours
+                        </span>
+                        </a>
+
+                        <div class="collapse" id="cours">
+                            <div class="sous-cours">
+                                <ul>
+                                    <li>
+                                        <a href="../cours-A1">
+                                            <span class="nav-text">
+                                                Année préparatoire
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../cours-DW">
+                                            <span class="nav-text">
+                                                Développement Web
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../cours-CD">
+                                            <span class="nav-text">
+                                                Communication Digitale
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../cours-CREA">
+                                            <span class="nav-text">
+                                                Création & Design
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../cours-3D">
+                                            <span class="nav-text">
+                                                Animation 3D
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../cours-JV">
+                                            <span class="nav-text">
+                                                Jeux vidéo
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../softskills">
+                                            <span class="nav-text">
+                                                Softskills
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../masteres">
+                                            <span class="nav-text">
+                                                <strong>Mastères</strong>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <hr class="line-menu-cours">
+                                    <li>
+                                        <a href="../recherche_cours.php">
+                                            <span class="nav-text">
+                                                <i class="fas fa-search"></i>
+                                                &nbsp;Rechercher un cours
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../ajouter_un_cours.php">
+                                            <span class="nav-text">
+                                                <i class="fas fa-plus-circle"></i>
+                                                &nbsp;Ajouter un cours
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </li>
+                    <li class="has-subnav">
+                        <a href="#">
+                            <i class="fa fa-list fa-x"></i>
+                            <span class="nav-text">
+                            Tutoriaux
+                        </span>
+                        </a>
+
+                    </li>
+                    <li class="has-subnav">
+                        <a href="#">
+                            <i class="fa fa-folder-open fa-x"></i>
+                            <span class="nav-text">
+                            Annuaire des élèves
+                        </span>
+                        </a>
+
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-info fa-x"></i>
+                            <span class="nav-text">
+                            IIM Documentation
+                        </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-font fa-x"></i>
+                            <span class="nav-text">
+                           Associations
+                        </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-american-sign-language-interpreting fa-x"></i>
+                            <span class="nav-text">
+                            Forum
+                        </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-broadcast-tower fa-x"></i>
+                            <span class="nav-text">
+                            Webradio
+                        </span>
+                        </a>
+                    </li>
+                    <!--
+                   <li>
+                       <a href="#">
+                           <i class="fa fa-bar-chart-o fa-x"></i>
+                           <span class="nav-text">
+                           Documentation
+                       </span>
+                       </a>
+                   </li>
+                   -->
+                </ul>
+
+                <ul class="logout">
+                    <li>
+                        <a href="../logout.php">
+                            <i class="fa fa-power-off fa-x"></i>
+                            <span class="nav-text">
+                            Logout
+                        </span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+
+            <a href="../profil.php">
+                <div class="login-absolute" style="background: url('{{ avatar }}') no-repeat;">
+
+                </div>
+            </a>
+        {% endblock %}
     </header>
     <main>
         {% block main %}{% endblock %}
@@ -24,6 +212,10 @@
 
 {% endblock %}
 
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script type="text/javascript" src="../src/style.js"></script>
+
 </body>
 </html>

@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+    <div class="section main">
+        {% if validation|default(false) %}
+            <div class="alert alert-success alert-dismissible fade show fade-alert" role="alert" style="position: absolute; width: calc(100% - 100px); margin-left: 50px; margin-right: 50px;">
+                <strong>Votre cours a bien été envoyé et est en attente de vérification</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endif %}
+
+        <div class="container text-center">
+            <h1 class="quicksand_bold title-h1 line-after-title" style="margin-top: 20px;">{{ cours }}</h1>
+
+            <table class="table text-left table-cours-select">
+                <tbody>
+                {% for allcour in allcours %}
+                    <tr>
+                        <th scope="row">
+                            <div class="d-flex bd-highlight">
+                                <div class="mr-auto p-2 bd-highlight">
+                                    <div class="row">
+                                        <div class="img-icone-type" style="{% if allcour.type == "image/png" %}background: url('../../img/png.png') no-repeat; {% elseif allcour.type == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" %}background: url('../../img/xls.png') no-repeat; {% elseif allcour.type == "image/jpeg" %}background: url('../../img/jpg.png') no-repeat; {% elseif allcour.type == "application/pdf" %}background: url('../../img/pdf.png') no-repeat; {% elseif allcour.type == "application/vnd.oasis.opendocument.text" %}background: url('../../img/doc.png') no-repeat; {% elseif allcour.type == "application/vnd.oasis.opendocument.formula" %}background: url('../../img/doc.png') no-repeat; {% elseif allcour.type == "application/zip" %}background: url('../../img/zip.png') no-repeat; {% elseif allcour.type == "application/vnd.ms-powerpoint" %}background: url('../../img/ppt.png') no-repeat; {% elseif allcour.type == "application/vnd.openxmlformats-officedocument.presentationml.presentation" %}background: url('../../img/ppt.png') no-repeat; {% elseif allcour.type == "application/msword" %}background: url('../../img/doc.png') no-repeat; {% elseif allcour.type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document" %}background: url('../../img/doc.png') no-repeat;{% endif %}background-size: contain;">
+
+                                        </div>
+                                        <div>
+                                            <p>{{ allcour.name }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-2 bd-highlight">
+                                    <a href="../../{{ allcour.file }}">
+                                        <div class="img-icone-voir">
+
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="p-2 bd-highlight">
+                                    <a href="../../{{ allcour.file }}" download="{{ allcour.slug }}">
+                                        <div class="img-icone-dl">
+
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </th>
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <th scope="row">
+                        <div class="" data-toggle="modal" data-target="#AddCours">
+                            <div class="text-center" style="padding: 10px; cursor: pointer;">
+                                <p>
+                                    <i class="fas fa-plus-circle"></i>
+                                    Ajouter un cours
+                                </p>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="modal fade" id="AddCours" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content text-center">
+                        <form method="post" action="../../cours_telechargement.php" enctype="multipart/form-data">
+                            <div class="modal-header">
+                                <h5 class="modal-title quicksand_bold" id="exampleModalLabel">Ajouter un cours</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="hidden" name="lienRetour" value="cours-3D/A2.php?cours={{ cours }}">
+                                <input type="hidden" name="MAX_FILE_SIZE" value="10000000000000" />
+
+                                <input type="file" name="document" class="btn btn-outline-success cours-input-file" required><br/><br/>
+
+                                <label for="title_document">Titre du fichier :</label><br />
+                                <input type="text" name="title_document" class="form-control cours-input-title" placeholder="Nom du fichier" id="title_document" required/><br />
+
+                                <input type="hidden" name="coursname" value="{{ cours }}">
+                                <input type="hidden" name="axe" value="{{ classe }}">
+                            </div>
+                            <div class="modal-footer">
+                                <input type="submit" class="btn btn-success dropdown-toggle cours-input-submit">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

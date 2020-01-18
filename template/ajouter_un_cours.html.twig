@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+    <div class="section main">
+        <div class="container text-center">
+            <h1 class="line-after-title quicksand_bold" style="margin-top: 20px; margin-bottom: 20px;">Ajouter un cours</h1>
+
+            <form method="post" action="../cours_telechargements.php">
+                <input type="file" name="title_document">
+
+                <input class="input-connect" name="name" type="text" placeholder="Nom du cours">
+                <select id="type" name="axe" class="input-connect custom-select">
+                    <option>Année préparatoire/Restart</option>
+                    <option>Bachelor - Animation 3D</option>
+                    <option>Bachelor - Communication digitale</option>
+                    <option>Bachelor - Création & design</option>
+                    <option>Bachelor - Développement Web</option>
+                    <option>Bachelor - Jeux vidéo</option>
+                    <option>Mastère - CSSM</option>
+                    <option>Mastère - DA</option>
+                    <option>Mastère - DMDA</option>
+                    <option>Mastère - GA</option>
+                    <option>Mastère - GD</option>
+                    <option>Mastère - GP</option>
+                    <option>Mastère - GP3D</option>
+                    <option>Mastère - IUX</option>
+                    <option>Mastère - IWM</option>
+                    <option>Mastère - MTD</option>
+                    <option>Mastère - PMJV</option>
+                    <option>Mastère - RA3D</option>
+                    <option>Mastère - SEB</option>
+                    <option>MBA - VGM</option>
+                </select>
+                <select id="annee" name="annee" class="input-connect custom-select">
+                    <option>A1</option>
+                    <option>A2</option>
+                    <option>A3</option>
+                    <option>A4</option>
+                    <option>A5</option>
+                </select>
+                <input type="submit" class="submit-connect">
+            </form>
+
+            <h4>Virer la page -> Nécessité JS pour avoir les catégories de cours</h4>
+
+        </div>
+    </div>
+
+{% endblock %}

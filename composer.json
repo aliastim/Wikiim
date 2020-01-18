@@ -13,7 +13,8 @@
     "require": {
         "symfony/var-dumper": "^4.3",
         "doctrine/orm": "^2.6",
-        "twig/twig": "^2.11"
+        "twig/twig": "^2.11",
+        "cocur/slugify": "^3.2"
     },
     "autoload": {
         "psr-4": {

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+    <div class="section main">
+        <div class="container text-center">
+            <h1 class="quicksand_bold title-h1 line-after-title" style="margin-top: 20px;">Cours Game Design</h1>
+
+            <div class="row">
+                <div class="col-12 col-md-6 text-center">
+                    <div class="cadre-outils-langages shadow">
+                        <a href="../../langages-web.php"><button>Cours langages web</button></a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 text-center">
+                    <div class="cadre-outils-langages shadow">
+                        <a href="../../langages-web.php"><button>Cours outils créatifs</button></a>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="shadow" style="margin-bottom: 100px;">
+                        <h3 class="title-liste-cours">Liste des cours</h3>
+                        <table class="table text-left table-cours">
+                            <tbody>
+                            {% for cours_categorie in cours_categories %}
+                                <tr>
+                                    <th scope="row">
+                                        <form method="get" action="../../masteres/GD.php">
+                                            <input type="hidden" name="cours" value="{{ cours_categorie.name }}">
+                                            <input type="hidden" name="classe" value="{{ cours_categorie.axe }}">
+                                            <input type="submit" value="{{ cours_categorie.name }}" class="btn-submit-cours">
+                                        </form>
+                                    </th>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+
+                    </div>
+
+                </div>
+            </div>
+            <!--<div style="background: #FDA366; height: 2000px;"></div>-->
+        </div>
+    </div>
+{% endblock %}
